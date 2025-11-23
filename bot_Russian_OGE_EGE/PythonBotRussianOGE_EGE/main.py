@@ -1,0 +1,20 @@
+import asyncio
+from aiogram import Bot, Dispatcher, types
+from handlers import register_routes
+
+TOKEN = '8258821853:AAElrj9JEiPGvVafdmCOF30YJWGzmYVvsAs'
+
+async def main():
+    bot = Bot(token=TOKEN)
+    dp = Dispatcher()
+
+    register_routes(dp)
+
+    await dp.start_polling(bot)
+
+
+if __name__ == '__main__':
+    try:
+        asyncio.run(main())
+    except KeyboardInterrupt:
+        print('Бот остановлен!')
